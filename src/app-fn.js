@@ -1,8 +1,9 @@
 import React from 'react'
 
-function App(){
+
+const App = () => {
     return <div>
-                <p>1 fn</p>
+                <p>Appfn file</p>
             </div>
 }
 
