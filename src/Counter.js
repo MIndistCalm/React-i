@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
-const Counter = () => {
+const Counter = ({ max }) => {
 
     let [ clicks, setClicks ] = useState(0)
-    let inc = () => {
-        setClicks(clicks + 1)
+    let inc = () => { (clicks < max) ? 
+        setClicks(clicks + 1) : null;
     }
     return <div>
-                <span onClick = { inc }>{ clicks }</span>
-                <p>Appfn file</p>
+                <span>{ clicks }</span>
+                <button type="button" onClick={ inc } disabled={ clicks >= max }>+</button>
             </div>
 }
 
