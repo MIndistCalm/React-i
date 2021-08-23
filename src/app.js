@@ -8,14 +8,14 @@ const App = () => {
                 <header>
                     Header
                 </header>
-                <body>
+                <div>
                     <h2>Test Class</h2>
                     <CounterCl/>
                     <hr/>
-                    <h2>Test Function</h2>
+                    <h2>Test Class</h2>
                     <CounterFn/>
                     <hr/>
-                </body>
+                </div>
                 <footer>
                     footer
                 </footer>

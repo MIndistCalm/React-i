@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 
-const App = () => {
+const Counter = () => {
 
-    let [ clicks, updateClicks ] = useState(0)
-
+    let [ clicks, setClicks ] = useState(0)
+    let inc = () => {
+        setClicks(clicks + 1)
+    }
     return <div>
-                <span onClick = {() => updateClicks(clicks + 1)}>{ clicks }</span>
+                <span onClick = { inc }>{ clicks }</span>
                 <p>Appfn file</p>
             </div>
 }
 
 
-export default App;
+export default Counter;
