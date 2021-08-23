@@ -1,25 +1,26 @@
 import React from 'react'
 
-class App extends React.Component{
+import CounterCl from './CounterClass'
+import CounterFn from './Counter'
 
-    state = {
-        clicks: 1
-    }
-
-    inc = () => {
-        let { clicks } = this.state;
-        this.setState({ clicks: clicks + 1 })
-    }
-
-    render(){
-        // let { clicks } = this.state;
-
-        return <div>
-                    <span onClick = { this.inc }>
-                        { this.state.clicks }
-                    </span>
-                </div>
-    }
+const App = () => {
+    return <div>
+                <header>
+                    Header
+                </header>
+                <body>
+                    <h2>Test Class</h2>
+                    <CounterCl/>
+                    <hr/>
+                    <h2>Test Function</h2>
+                    <CounterFn/>
+                    <hr/>
+                </body>
+                <footer>
+                    footer
+                </footer>
+            </div>
 }
+
 
 export default App;

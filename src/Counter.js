@@ -5,16 +5,8 @@ const App = () => {
     let [ clicks, updateClicks ] = useState(0)
 
     return <div>
-                <header>
-                    Header
-                </header>
-                <body>
-                    <span onClick = {() => updateClicks(clicks + 1)}>{ clicks }</span>
-                    <p>Appfn file</p>
-                </body>
-                <footer>
-                    footer
-                </footer>
+                <span onClick = {() => updateClicks(clicks + 1)}>{ clicks }</span>
+                <p>Appfn file</p>
             </div>
 }
 

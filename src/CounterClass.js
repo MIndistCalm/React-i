@@ -3,7 +3,7 @@ import React from 'react'
 class App extends React.Component{
 
     state = {
-        clicks: 1
+        clicks: 0
     }
 
     inc = () => {
@@ -12,8 +12,6 @@ class App extends React.Component{
     }
 
     render(){
-        // let { clicks } = this.state;
-
         return <div>
                     <span onClick = { this.inc }>
                         { this.state.clicks }
