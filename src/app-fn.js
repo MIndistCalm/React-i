@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 const App = () => {
+
+    let [ clicks, updateClicks ] = useState(0)
+
     return <div>
-                <p>Appfn file</p>
+                <header>
+                    Header
+                </header>
+                <body>
+                    <span onClick = {() => updateClicks(clicks + 1)}>{ clicks }</span>
+                    <p>Appfn file</p>
+                </body>
+                <footer>
+                    footer
+                </footer>
             </div>
 }
 

@@ -6,11 +6,16 @@ class App extends React.Component{
         clicks: 1
     }
 
-    render(){
+    inc = () => {
         let { clicks } = this.state;
+        this.setState({ clicks: clicks + 1 })
+    }
+
+    render(){
+        // let { clicks } = this.state;
 
         return <div>
-                    <span onClick={() => this.setState({clicks: clicks + 1})}>
+                    <span onClick = { this.inc }>
                         { this.state.clicks }
                     </span>
                 </div>
