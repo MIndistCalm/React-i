@@ -1,28 +1,60 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 
 const Counter = ({ min, max }) => {
 
-    let [ current, setCurrent ] = useState(min)
-    let inc = () => { (current < max) ? 
-        setCurrent(current + 1) : setCurrent(max);
+    const [ count, setCount ] = useState(min)
+    const [inputValue, setInputValue] = useState(count)
+
+    useEffect( () => setInputValue(count), [count]);
+
+    const isLessThanMax = count < max;
+    const isMoreThanMin = count > min;
+    
+    const inc = () => { 
+        setCount(isLessThanMax ? count + 1 : count);
     }
-    let dec = () => { (current > min) ? 
-        setCurrent(current - 1) : setCurrent(min);
+    const dec = () => { 
+        setCount(isMoreThanMin ? count - 1 : count);
     }
     
+    const handleInputChange = (evt) => {
+        setInputValue(evt.target.value);
+    }
+
+    const handleInputBlur = () => {
+        const parsedInputValue = parseInt(inputValue, 10);
+
+        if (isNaN(parsedInputValue)){
+            setInputValue(count)
+        } else{
+            const nextCountValue = Math.min(Math.max(min, parsedInputValue), max);
+
+            count === nextCountValue ? setInputValue(nextCountValue) : setCount(nextCountValue);
+        }
+    }
+
     return <div>
-                <button type="button" onClick={ dec } disabled={ current <= min }>-</button>
-                <span>{ current }</span>
-                <input type="number" value={ current } onChange={ event => setCurrent((current >= max + 1) ? max : ((current <= min - 1) ? min : event.target.value)) } />
-                <button type="button" onClick={ inc } disabled={ current >= max }>+</button>
+                <button type="button" onClick={ dec } disabled={ !isMoreThanMin }>-</button>
+                <span>{ count }</span>
+                <input 
+                    type="text" 
+                    value={ inputValue } 
+                    onChange={ handleInputChange }
+                    onBlur={ handleInputBlur } />
+                <button type="button" onClick={ inc } disabled={ !isLessThanMax }>+</button>
             </div>
+}
+
+Counter.defaultProps = {
+    min: 0,
+    max: Infinity,
 }
 
 Counter.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
-    current: PropTypes.number,
+    count: PropTypes.string,
   };
 
 export default Counter; 
