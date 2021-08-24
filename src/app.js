@@ -15,7 +15,7 @@ const App = () => {
                     <CounterCl/>
                     <hr/>
                     <h2>Test Class</h2>
-                    <CounterFn max={5} />
+                    <CounterFn min={1} max={10} />
                     <hr/>
                 </div>
                 <footer>
